@@ -8,10 +8,11 @@
 import SwiftUI
 
 @main
-struct LuluApp1App: App {
+struct LuluApp1App: App
+{
     var body: some Scene {
         WindowGroup {
-            ContentView()
+			ContentView(model:LuluModel())
         }
     }
 }
