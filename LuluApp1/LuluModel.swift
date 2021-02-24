@@ -80,6 +80,8 @@ class LuluModel : ObservableObject
 					return false;
 			}
 		}
+
+		self.currentSortMethod = method
 	}
 }
 

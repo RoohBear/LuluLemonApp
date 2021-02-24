@@ -37,14 +37,16 @@ struct ContentView: View
 					model.doSort(method:.name)
 				}) {
 					Text("Alpha")
-				}.background(Color.black)
+				}.background(model.currentSortMethod == .name ? Color.black : Color.clear)
+
 				Text(" ")
+
 				Button(action: {
 					print("Creation time button tapped")
 					model.doSort(method:.creationDate)
 				}) {
 					Text("Creation Time")
-				}
+				}.background(model.currentSortMethod == .creationDate ? Color.black : Color.clear)
 			}
 
 			List(model.arrGarments, id: \.name) { garment in
