@@ -13,6 +13,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 	@IBOutlet var theSegmentedControl:UISegmentedControl!
 	var model = LuluModel()
 
+	// called once the UI is ready to use
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
@@ -21,6 +22,18 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 		model.addSomeTestGarments()
 	}
 
+	// called when user changes the Sorting Segmented Control
+	@IBAction func segmentedControlClicked(sender: UISegmentedControl)
+	{
+		if sender.selectedSegmentIndex == 0 {
+			model.doSort(how:.name)
+		}
+		if sender.selectedSegmentIndex == 1 {
+			model.doSort(how:.creationDate)
+		}
+	}
+	
+	// MARK: - UITableView datasource and delegate functions
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
 	{
 		return model.arrGarments.count
@@ -37,6 +50,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 		return ret!
 	}
 
+	
 	// MARK: - LuluModelDelegate functions
 	
 	// called by the model when the model changes and the UI should refresh

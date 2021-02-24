@@ -39,6 +39,9 @@
                                     <segment title="Alpha"/>
                                     <segment title="Creation Time"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlClickedWithSender:" destination="dcY-Nb-iWu" eventType="valueChanged" id="ogW-G0-8Iy"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="McB-P5-2Xy">
                                 <rect key="frame" x="20" y="136" width="374" height="678"/>
