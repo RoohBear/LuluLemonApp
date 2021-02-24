@@ -16,6 +16,9 @@
 		274AE52A25E6EBE500775EFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 274AE52825E6EBE500775EFA /* LaunchScreen.storyboard */; };
 		274AE53525E6EBE500775EFA /* UIKitVersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274AE53425E6EBE500775EFA /* UIKitVersionTests.swift */; };
 		274AE54025E6EBE500775EFA /* UIKitVersionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274AE53F25E6EBE500775EFA /* UIKitVersionUITests.swift */; };
+		274AE54C25E6EDE300775EFA /* AddNewGarmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274AE54B25E6EDE300775EFA /* AddNewGarmentViewController.swift */; };
+		274AE54D25E6EE3600775EFA /* LuluModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274AE50525E5FCA300775EFA /* LuluModel.swift */; };
+		274AE54E25E6EE3800775EFA /* LuluModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274AE50525E5FCA300775EFA /* LuluModel.swift */; };
 		27970C8B25E5FBC500CF8A88 /* LuluApp1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27970C8A25E5FBC500CF8A88 /* LuluApp1App.swift */; };
 		27970C8D25E5FBC500CF8A88 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27970C8C25E5FBC500CF8A88 /* ContentView.swift */; };
 		27970C8F25E5FBC600CF8A88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27970C8E25E5FBC600CF8A88 /* Assets.xcassets */; };
@@ -55,6 +58,7 @@
 		274AE53B25E6EBE500775EFA /* UIKitVersionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIKitVersionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		274AE53F25E6EBE500775EFA /* UIKitVersionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitVersionUITests.swift; sourceTree = "<group>"; };
 		274AE54125E6EBE500775EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		274AE54B25E6EDE300775EFA /* AddNewGarmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGarmentViewController.swift; sourceTree = "<group>"; };
 		27970C8725E5FBC500CF8A88 /* LuluApp1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuluApp1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27970C8A25E5FBC500CF8A88 /* LuluApp1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuluApp1App.swift; sourceTree = "<group>"; };
 		27970C8C25E5FBC500CF8A88 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 				274AE51D25E6EBE400775EFA /* AppDelegate.swift */,
 				274AE51F25E6EBE400775EFA /* SceneDelegate.swift */,
 				274AE52125E6EBE400775EFA /* FirstViewController.swift */,
+				274AE54B25E6EDE300775EFA /* AddNewGarmentViewController.swift */,
 				274AE52325E6EBE400775EFA /* Main.storyboard */,
 				274AE52625E6EBE500775EFA /* Assets.xcassets */,
 				274AE52825E6EBE500775EFA /* LaunchScreen.storyboard */,
@@ -330,6 +335,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				274AE54D25E6EE3600775EFA /* LuluModel.swift in Sources */,
+				274AE54C25E6EDE300775EFA /* AddNewGarmentViewController.swift in Sources */,
 				274AE52225E6EBE400775EFA /* FirstViewController.swift in Sources */,
 				274AE51E25E6EBE400775EFA /* AppDelegate.swift in Sources */,
 				274AE52025E6EBE400775EFA /* SceneDelegate.swift in Sources */,
@@ -341,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				274AE53525E6EBE500775EFA /* UIKitVersionTests.swift in Sources */,
+				274AE54E25E6EE3800775EFA /* LuluModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
