@@ -44,6 +44,10 @@
                                 <rect key="frame" x="20" y="136" width="374" height="678"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="dcY-Nb-iWu" id="XvO-rB-OLM"/>
+                                    <outlet property="delegate" destination="dcY-Nb-iWu" id="gVt-OK-iia"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5gq-eM-Vxn"/>
@@ -51,6 +55,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="NTe-VI-u9X"/>
                     <connections>
+                        <outlet property="theSegmentedControl" destination="0gc-uH-JLP" id="PJE-9P-VVw"/>
+                        <outlet property="theTable" destination="McB-P5-2Xy" id="6j3-fA-Jf7"/>
                         <segue destination="9Iw-6z-V5w" kind="show" identifier="segueAddNewGarment" id="vsP-Uy-1eU"/>
                     </connections>
                 </viewController>

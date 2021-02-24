@@ -100,29 +100,7 @@ struct ContentView: View
 			// The spacer pushes everything up to leave space at the bottom
 			Spacer()
 		}.onAppear() {
-			// on ViewDidAppear, we add 4 things to the queue 1 second apart so they have obvious different creation times.
-			DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + TimeInterval(1)) {
-				model.addGarment(name: "T-Shirt")
-			}
-			DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + TimeInterval(2)) {
-				model.addGarment(name: "Dress")
-			}
-			DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + TimeInterval(3)) {
-				model.addGarment(name: "Shirt")
-			}
-			DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + TimeInterval(4)) {
-				model.addGarment(name: "Pant")
-			}
-			
-
-			// On a normal app, it would be good for the model to have a default sort method.
-			// In this app, the default is ".unknown" but just for fun, let's set the sort method
-			// automatically 5 seconds after startup to ".name" to demonstrate how the UI updates automatically.
-			DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + TimeInterval(5)) {
-				DispatchQueue.main.async {
-					model.doSort(how:.name)
-				}
-			}
+			model.addSomeTestGarments()
 		}
 	}
 }
