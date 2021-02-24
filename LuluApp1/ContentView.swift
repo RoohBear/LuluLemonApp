@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View
 {
 	@ObservedObject var model:LuluModel
+	var df = DateFormatter.init()
 
 	var body: some View
 	{
@@ -50,11 +51,13 @@ struct ContentView: View
 				HStack
 				{
 					Text(garment.name)
-					Text("\(garment.creationDate)")
+					Spacer()
+					Text(garment.creationDateForUI())
 				}
 			}
 			Spacer()
 		}.onAppear() {
+			// add 4 things to the queue 1 second apart so they have obvious different creation times.
 			DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + TimeInterval(1)) {
 				model.addGarment(name: "T-Shirt")
 			}

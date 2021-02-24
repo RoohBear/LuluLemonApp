@@ -15,6 +15,18 @@ struct GarmentInfo
 {
 	var name:String!
 	var creationDate:Date!
+	
+	/**
+	 * Returns the creation date as a string suitable for display in the UI.
+	 * @return A string for displaying the creation date.
+	 */
+	func creationDateForUI() -> String
+	{
+		let formatter = DateFormatter()
+		formatter.dateStyle = .medium
+		formatter.timeStyle = .medium
+		return formatter.string(from:self.creationDate)
+	}
 }
 
 /**
@@ -33,8 +45,8 @@ class LuluModel : ObservableObject
 
 	
 	/**
-	 * Adds a garment to the array of garments, then performs a sort
-	 * @param name Name of the garment
+	 * Adds a garment to the array of garments, then performs a sort.
+	 * @param name Name of the garment.
 	 */
 	func addGarment(name:String)
 	{
