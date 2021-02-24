@@ -11,6 +11,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 {
 	@IBOutlet var theTable:UITableView!
 	@IBOutlet var theSegmentedControl:UISegmentedControl!
+	let segueNameForAddingNewGarment = "segueAddNewGarment"
 	var model = LuluModel()
 
 	// called once the UI is ready to use
@@ -18,6 +19,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 	{
 		super.viewDidLoad()
 
+		
 		model.delegate = self
 		model.addSomeTestGarments()
 	}
@@ -30,6 +32,23 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 		}
 		if sender.selectedSegmentIndex == 1 {
 			model.doSort(how:.creationDate)
+		}
+	}
+	
+	// Called when the user clicks the "+" button in the navbar.
+	@IBAction func plusButtonClicked(sender:Any)
+	{
+		self.performSegue(withIdentifier:segueNameForAddingNewGarment, sender:self)
+	}
+
+	// Called before doing a segue to another view controller.
+	// This is our chance to pass data to the new view controller (such as the model or any data to display).
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+	{
+		if segue.identifier == segueNameForAddingNewGarment {
+			if let vc = segue.destination as? AddNewGarmentViewController {
+				vc.theModel = self.model	// pass the model class to the new VC so it can add new garments, etc
+			}
 		}
 	}
 	

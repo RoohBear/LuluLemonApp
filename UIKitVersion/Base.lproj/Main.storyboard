@@ -56,7 +56,13 @@
                         <viewLayoutGuide key="safeArea" id="5gq-eM-Vxn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NTe-VI-u9X"/>
+                    <navigationItem key="navigationItem" title="List" id="e8x-4m-hMh">
+                        <barButtonItem key="rightBarButtonItem" image="plus.circle" catalog="system" id="FXs-mK-4Kt">
+                            <connections>
+                                <action selector="plusButtonClickedWithSender:" destination="dcY-Nb-iWu" id="G2A-OE-hCQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="theSegmentedControl" destination="0gc-uH-JLP" id="PJE-9P-VVw"/>
                         <outlet property="theTable" destination="McB-P5-2Xy" id="6j3-fA-Jf7"/>
@@ -67,24 +73,49 @@
             </objects>
             <point key="canvasLocation" x="513.04347826086962" y="10.714285714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Add-->
         <scene sceneID="cbA-Tp-zf4">
             <objects>
-                <viewController id="9Iw-6z-V5w" sceneMemberID="viewController">
+                <viewController id="9Iw-6z-V5w" customClass="AddNewGarmentViewController" customModule="UIKitVersion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U7Z-ZH-oTC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Garment Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPs-t8-6qC">
+                                <rect key="frame" x="20" y="110" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a new garment name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ohr-rb-f02">
+                                <rect key="frame" x="20" y="139" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zjF-wP-jaA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SaA-GZ-D2e"/>
+                    <navigationItem key="navigationItem" title="Add" id="SaA-GZ-D2e">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="pn6-Qo-4Pm">
+                            <connections>
+                                <action selector="buttonSaveClickedWithSender:" destination="9Iw-6z-V5w" id="664-fm-EBE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textfieldName" destination="ohr-rb-f02" id="x9F-cK-gXc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3d-YC-e46" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1386" y="11"/>
+            <point key="canvasLocation" x="1385.5072463768117" y="10.714285714285714"/>
         </scene>
     </scenes>
     <resources>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
