@@ -29,6 +29,9 @@ struct GarmentInfo
 	}
 }
 
+/**
+ * Platforms that need to be notified of changes to the model should follow the LuluModelDelegate protocol.
+ */
 protocol LuluModelDelegate
 {
 	/**
@@ -61,10 +64,12 @@ class LuluModel : ObservableObject
 	 */
 	func addGarment(name:String)
 	{
-		DispatchQueue.main.async {
-			// this must be done on main thread because it publishes a change
-			self.arrGarments.append(GarmentInfo(name:name, creationDate:Date.init()))
-			self.doSort(how:self.currentSortMethod)
+		if name.count > 0 {
+			DispatchQueue.main.async {
+				// this must be done on main thread because it publishes a change
+				self.arrGarments.append(GarmentInfo(name:name, creationDate:Date.init()))
+				self.doSort(how:self.currentSortMethod)
+			}
 		}
 	}
 	
@@ -118,9 +123,9 @@ class LuluModel : ObservableObject
 		}
 		
 
-		// On a normal app, it would be good for the model to have a default sort method.
-		// In this app, the default is ".unknown" but just for fun, let's set the sort method
-		// automatically 5 seconds after startup to ".name" to demonstrate how the UI updates automatically.
+		// On a production-level app, it would be good for the model to set a default sort method.
+		// In this app, the default is ".unknown" for the first few seconds, then it is changed
+		// automatically 5 after seconds to ".name" to demonstrate how the UI updates automatically.
 		DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + TimeInterval(5)) {
 			DispatchQueue.main.async {
 				self.doSort(how:.name)
