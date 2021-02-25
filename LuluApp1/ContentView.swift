@@ -100,6 +100,9 @@ struct ContentView: View
 			Spacer()
 		}.onAppear() {
 			model.addSomeTestGarments()
+			model.loadFromDisk { success in
+				print("loadFromDisk completed (\(model.arrGarments.count) garments loaded)")
+			}
 		}
 	}
 }

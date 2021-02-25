@@ -142,9 +142,29 @@ class LuluModel : ObservableObject
 	}
 	
 	/**
+	 * Loads the array of garments from disk (in this case, UserDefaults). Calls a completion handler when done.
+	 * @param completionHandler: a function of ()->() that is called when the operation has completed.
+	 */
+	func loadFromDisk(completionHandler:(Bool)->())
+	{
+		if let stringLoaded = UserDefaults.standard.value(forKey:keyUserDefaultsGarments) as? String {
+			if let dataStringLoaded = stringLoaded.data(using:.utf8) {
+				do {
+					self.arrGarments = try JSONDecoder().decode([GarmentInfo].self, from:dataStringLoaded)
+				}catch{
+					completionHandler(false)
+					return
+				}
+			}
+		}
+		
+		completionHandler(true)
+	}
+
+	/**
 	 * Saves the array of garments to disk (in this case, UserDefaults). Calls a completion handler when done.
   	 * @param completionHandler: a function of (Bool)->() that is called when the operation has completed. Returns true if succes, false if error.
-	*/
+	 */
 	func saveToDisk(completionHandler:(Bool)->())
 	{
 		if let dataToSave = try? JSONEncoder().encode(self.arrGarments) {
