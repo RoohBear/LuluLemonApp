@@ -11,7 +11,7 @@ import Foundation
 /**
  * Structure containing all the info about a single garment.
  */
-struct GarmentInfo
+struct GarmentInfo : Codable
 {
 	var name:String!
 	var creationDate:Date!
@@ -56,6 +56,7 @@ class LuluModel : ObservableObject
 	@Published private(set) var arrGarments = [GarmentInfo]()
 	@Published private(set) var currentSortMethod:SortMethod = .unsorted
 	var delegate:LuluModelDelegate!
+	let keyUserDefaultsGarments = "theGarments"	// key name of where the garments are stored in UserDefaults
 	
 	
 	/**
@@ -100,6 +101,13 @@ class LuluModel : ObservableObject
 
 		self.currentSortMethod = how
 		self.updateDelegatesOfModelChange()
+		self.saveToDisk { success in
+			if success == true {
+				print("saved to disk ok")
+			}else{
+				print("Failed to save to disk")
+			}
+		}
 	}
 	
 	/**
@@ -130,6 +138,21 @@ class LuluModel : ObservableObject
 			DispatchQueue.main.async {
 				self.doSort(how:.name)
 			}
+		}
+	}
+	
+	/**
+	 * Saves the array of garments to disk (in this case, UserDefaults). Calls a completion handler when done.
+  	 * @param completionHandler: a function of (Bool)->() that is called when the operation has completed. Returns true if succes, false if error.
+	*/
+	func saveToDisk(completionHandler:(Bool)->())
+	{
+		if let dataToSave = try? JSONEncoder().encode(self.arrGarments) {
+			let stringOfDataToSave = String.init(data:dataToSave, encoding:.utf8)
+			UserDefaults.standard.setValue(stringOfDataToSave, forKey:keyUserDefaultsGarments)
+			completionHandler(true)
+		}else{
+			completionHandler(false)
 		}
 	}
 	

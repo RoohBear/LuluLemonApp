@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View
 {
 	@ObservedObject var model:LuluModel
-	var df = DateFormatter.init()
 	@State private var showAddGarmentView = false
 	@State private var newGarmentName = ""
 

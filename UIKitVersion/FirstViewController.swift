@@ -18,7 +18,6 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
-
 		
 		model.delegate = self
 		model.addSomeTestGarments()
@@ -77,6 +76,5 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 	{
 		self.theTable.reloadData()
 	}
-	
 }
 
